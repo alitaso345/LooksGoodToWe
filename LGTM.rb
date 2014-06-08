@@ -20,7 +20,8 @@ class LGTM
   end
 
   def save_image(image)
-    image.write("output.gif")
+    image.write("output.png") if @image_list.size == 1
+    image.write("output.gif") if @image_list.size > 1
   end
 end
 

@@ -1,11 +1,14 @@
 require 'RMagick'
 
 class LGTM
-  def initialize(image_name, comment)
+  def initialize(image_name)
     @image = Magick::ImageList.new(image_name)
-    @comment = comment
     @draw= Magick::Draw.new
+  end
+
+  def draw_text(comment)
+    @comment = comment
   end
 end
 
-LGTM.new("eru.jpg", "LGTM")
+LGTM.new("eru.jpg").draw_text("LGTM")

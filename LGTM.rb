@@ -7,7 +7,13 @@ class LGTM
   end
 
   def draw_text(comment)
-    @comment = comment
+    @draw.annotate(@image, 0, 0, 0, 0, comment) do
+      self.fill = "white"
+      self.pointsize = 100
+      self.gravity = Magick::CenterGravity
+    end
+  end
+
   end
 end
 

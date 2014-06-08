@@ -24,5 +24,3 @@ class LGTM
     image.write("output.gif") if @image_list.size > 1
   end
 end
-
-LGTM.new("eru.jpg").draw_text("LGTM")

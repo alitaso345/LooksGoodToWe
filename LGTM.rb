@@ -12,8 +12,12 @@ class LGTM
       self.pointsize = 100
       self.gravity = Magick::CenterGravity
     end
+
+    save_image(@image)
   end
 
+  def save_image(image)
+    image.write("output.jpg")
   end
 end
 

@@ -1,9 +1,17 @@
-class TumblrClient
-  def initialize(user_name)
-    
+require 'tumblr_client'
+
+class GetTumblr
+  def initialize()
   end
 
-  def get_image
-    image_url = "http://24.media.tumblr.com/tumblr_m80zupYzDi1qc5wono1_500.gif"
+  def get_image()
+    hoge = Tumblr::Client.new
+    posts_info = hoge.posts("alitaso345.tumblr.com", :type => "photo", :limit => 2)
+    p posts_info.size
+    posts_info.each do |post|
+      p post
+      post_detail = post["posts"][0]
+      p post_detail["post_url"]
+    end
   end
 end

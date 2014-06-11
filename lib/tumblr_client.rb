@@ -1,6 +1,6 @@
 require 'tumblr_client'
 
-class GetTumblr
+class TumblrAPI
   def initialize()
   end
 

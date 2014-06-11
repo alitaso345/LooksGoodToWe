@@ -12,14 +12,15 @@ class TumblrAPI
     end
   end
 
-  def get_image()
+  def get_image_url()
     hoge = Tumblr::Client.new
-    posts_info = hoge.posts("alitaso345.tumblr.com", :type => "photo", :limit => 2)
-    p posts_info.size
-    posts_info.each do |post|
-      p post
-      post_detail = post["posts"][0]
-      p post_detail["post_url"]
-    end
+    posts_info = hoge.posts("alitaso345.tumblr.com", :type => "photo", :limit => 5)
+    posts =  posts_info["posts"]
+
+    #画像のURLだけを取り出してまとめる.サイズに関しては適当
+    image_urls = Array.new
+    posts.each{|post| image_urls << post["photos"].first["original_size"]["url"]}
+
+    return image_urls
   end
 end

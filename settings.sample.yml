@@ -1,0 +1,9 @@
+tumblr:
+  consumer_key:
+    hogehoge
+  consumer_secret:
+    hogehoge
+  oauth_token:
+    hogehoge
+  oauth_token_secret:
+    hogehoge

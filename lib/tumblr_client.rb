@@ -1,7 +1,15 @@
 require 'tumblr_client'
 
 class TumblrAPI
-  def initialize()
+  def initialize(settings)
+    tumblr = settings["tumblr"]
+
+    Tumblr.configure do |config|
+      config.consumer_key = tumblr["consumer_key"]
+      config.consumer_secret = tumblr["consumer_secret"]
+      config.oauth_token = tumblr["oauth_token"]
+      config.oauth_token_secret = tumblr["oauth_token_secret"]
+    end
   end
 
   def get_image()

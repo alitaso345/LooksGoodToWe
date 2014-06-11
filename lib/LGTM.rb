@@ -1,8 +1,8 @@
 require 'RMagick'
 
 class LGTM
-  def initialize(image_name)
-    @image_list = Magick::ImageList.new(image_name)
+  def initialize(images)
+    @image_list = Magick::ImageList.new(images.sample)
     @draw= Magick::Draw.new
   end
 

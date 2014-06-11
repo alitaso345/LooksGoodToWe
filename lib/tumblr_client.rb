@@ -17,10 +17,9 @@ class TumblrAPI
     posts_info = client.posts("#{@tumblr["user_name"]}", :type => "photo", :limit => 50)
     posts =  posts_info["posts"]
 
-    #画像のURLだけを取り出してまとめる.サイズに関しては適当
+    #画像のURLだけを取り出してまとめる.サイズはリサイズしたものを用いる
     image_urls = Array.new
-    posts.each{|post| image_urls << post["photos"].first["original_size"]["url"]}
-
+    posts.each{|post| image_urls << post["photos"].first["alt_sizes"].first["url"]}
     return image_urls
   end
 end

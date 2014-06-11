@@ -7,7 +7,8 @@ class LGTM
   end
 
   def draw_text(comment)
-    fontsize = @image_list.rows * 0.5 #0.5掛けだといいかんじになる
+    smaller = @image_list.rows < @image_list.columns ? @image_list.rows : @image_list.columns
+    fontsize = smaller * 0.5 #縦あるいは横幅の小さい方の0.5掛けだと大体いいかんじになる
     @image_list.each do |image|
       @draw.annotate(image, 0, 0, 0, 0, comment) do
         self.fill = "white"
